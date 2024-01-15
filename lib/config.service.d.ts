@@ -1,4 +1,4 @@
-declare module 'ggs' {
+declare module 'ggs-database' {
     class ConfigService {
         constructor()
         get(key: string): string
