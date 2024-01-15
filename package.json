@@ -1,8 +1,9 @@
 {
   "name": "ggs-database",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ggs database",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:garnik93/ggs.git"
