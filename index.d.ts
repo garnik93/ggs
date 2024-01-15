@@ -17,5 +17,6 @@ declare module 'ggs' {
         set(collection: string, item: any): Promise<void>
         get(collection: string): Promise<any>
         verifyToken(secretKey: string, token: string): Promise<any | null>
+        generateToken(data: string, secretKey: string): string
     }
 }
