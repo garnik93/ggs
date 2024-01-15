@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "ggs database",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:garnik93/ggs.git"
+  },
   "author": "Garnik Gevorgyan",
   "license": "ISC",
   "dependencies": {
