@@ -1,0 +1,12 @@
+{
+  "name": "ggs",
+  "version": "1.0.0",
+  "description": "ggs database",
+  "main": "index.js",
+  "author": "Garnik Gevorgyan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
