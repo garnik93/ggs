@@ -1,5 +1,5 @@
 {
-  "name": "ggs",
+  "name": "ggs-database",
   "version": "1.0.0",
   "description": "ggs database",
   "main": "index.js",
