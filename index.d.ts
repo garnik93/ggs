@@ -1,4 +1,4 @@
-declare module 'ggs' {
+declare module 'ggs-database' {
     type DatabaseClientOptions = {
         store: {
             username: string
