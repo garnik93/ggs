@@ -1,10 +1,5 @@
-declare module 'ggs-database' {
-    class ConfigService {
-        constructor()
-        get(key: string): string
-    }
+export class ConfigService {
+    constructor()
 
-    export = ConfigService
-
-    function getSecretKey(key: string): string
+    get(key: string): string
 }

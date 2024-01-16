@@ -1,19 +1,22 @@
 const jwt = require('jsonwebtoken')
-const { getSecretKey } = require('./lib/config.service')
+const { ConfigService } = require('./lib/config.service')
 
 class GGSClient {
     constructor(options) {
+        this.config = new ConfigService()
+        this.checkUsername = process.env.GGS_USERNAME
+        this.checkPassword = process.env.GGS_PASSWORD
         this.username = options.store.username
         this.password = options.store.password
         this.projectName = options.store.projectName
+        this.secreteKey = options.store.secreteKey || this.config.get('SECRETE_KEY')
     }
 
     async authenticate() {
-        if (this.username === 'gepard4125' && this.password === 'rockshox4125!') {
-            return this.generateToken({ username: this.username }, process.env.SECRET_KEY)
-        } else {
-            return null
-        }
+        const {username, password} = this
+
+        if (username === this.checkUsername && password === this.checkPassword) return null
+        return this.generateToken({ username: this.username }, this.secreteKey)
     }
 
     async set(collection, item) {
@@ -68,7 +71,7 @@ class GGSClient {
 
     verifyToken(secretKey, token) {
         return new Promise((resolve) => {
-            jwt.verify(token, getSecretKey(secretKey), (err, decoded) => {
+            jwt.verify(token, this.config.get(secretKey), (err, decoded) => {
                 if (err) {
                     console.error('Token verification failed:', err.message)
                     resolve(null)
@@ -80,7 +83,7 @@ class GGSClient {
     }
 
     generateToken(data, secretKey) {
-        return jwt.sign(data, getSecretKey(secretKey))
+        return jwt.sign(data, secretKey)
     }
 }
 
