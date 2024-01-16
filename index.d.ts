@@ -19,4 +19,6 @@ declare module 'ggs-database' {
         verifyToken(secretKey: string, token: string): Promise<any | null>
         generateToken(data: string, secretKey: string): string
     }
+
+    export = GGSClient
 }

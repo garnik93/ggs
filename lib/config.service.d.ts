@@ -4,5 +4,7 @@ declare module 'ggs-database' {
         get(key: string): string
     }
 
+    export = ConfigService
+
     function getSecretKey(key: string): string
 }

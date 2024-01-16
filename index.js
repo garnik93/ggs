@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { getSecretKey } = require('/lib/config.service')
+const { getSecretKey } = require('./lib/config.service')
 
 class GGSClient {
     constructor(options) {

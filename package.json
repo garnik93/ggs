@@ -1,6 +1,6 @@
 {
   "name": "ggs-database",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "ggs database",
   "main": "index.js",
   "types": "index.d.ts",
