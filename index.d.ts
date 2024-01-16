@@ -1,4 +1,4 @@
-import { ConfigService } from './lib/config.service'
+import  ConfigService  from './lib/config.service'
 
 declare module 'ggs-database' {
     type DatabaseClientOptions = {

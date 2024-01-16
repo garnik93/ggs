@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { ConfigService } = require('./lib/config.service')
+const ConfigService = require('./lib/config.service')
 
 class GGSClient {
     constructor(options) {
@@ -15,7 +15,7 @@ class GGSClient {
     async authenticate() {
         const {username, password} = this
 
-        if (username === this.checkUsername && password === this.checkPassword) return null
+        if (username !== this.checkUsername || password !== this.checkPassword) return null
         return this.generateToken({ username: this.username }, this.secreteKey)
     }
 
