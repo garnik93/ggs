@@ -7,6 +7,8 @@ declare module 'ggs-database' {
             password: string
             projectName: string
             secreteKey?: string
+            host?: string
+            port?: number
         }
     }
 
@@ -18,6 +20,8 @@ declare module 'ggs-database' {
         private password: string
         private projectName: string
         private secreteKey: string
+        private host: string
+        private port: number
 
         constructor(options: DatabaseClientOptions)
         private authenticate(): Promise<string | null>

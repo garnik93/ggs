@@ -18,7 +18,9 @@ const client = new GGSClient({
       username: 'Username',
       password: 'Password',
       projectName: 'Your project name', 
-      secreteKey: 'Your secrete key'
+      secreteKey: 'Your secrete key',
+      host: 'localhost' || '12.34.02.100',
+      port: 2456 || 'default' 3000
   }
 })
 ```
@@ -63,7 +65,7 @@ client.set(collection, {})
 #### Create method:
 
 ```js
-fetch(`http://localhost:3000/api/${collection}`, {
+fetch(`http://${host}:${port}/api/${collection}`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -77,7 +79,7 @@ fetch(`http://localhost:3000/api/${collection}`, {
 #### Get data method:
 
 ```js
-fetch(`http://localhost:3000/api/${collection}`, {
+fetch(`http://${host}:${port}/api/${collection}`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',

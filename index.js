@@ -10,6 +10,8 @@ class GGSClient {
         this.password = options.store.password
         this.projectName = options.store.projectName
         this.secreteKey = options.store.secreteKey || this.config.get('SECRETE_KEY')
+        this.host = options.store.host || '46.175.147.160'
+        this.port = options.store.port || 3000
     }
 
     async authenticate() {
@@ -28,7 +30,7 @@ class GGSClient {
 
         try {
             // Пример: Добавление токена в заголовок запроса
-            await fetch(`http://localhost:3000/api/${collection}`, {
+            await fetch(`http://${this.host}:${this.port}/api/${collection}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +54,7 @@ class GGSClient {
 
         try {
             // Пример: Добавление токена в заголовок запроса
-            const response = await fetch(`http://localhost:3000/api/${collection}`, {
+            const response = await fetch(`http://${this.host}:${this.port}/api/${collection}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
