@@ -10,7 +10,7 @@ class GGSClient {
         this.password = options.store.password
         this.projectName = options.store.projectName
         this.secreteKey = options.store.secreteKey || this.config.get('SECRETE_KEY')
-        this.host = options.store.host || '46.175.147.160'
+        this.host = options.store.host || process.env.GGS_HOST
         this.port = options.store.port || 3000
     }
 
