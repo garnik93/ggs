@@ -29,8 +29,8 @@ class GGSClient {
         }
 
         try {
-            // Пример: Добавление токена в заголовок запроса
-            await fetch(`http://${this.host}:${this.port}/api/${collection}`, {
+            const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
+            await fetch(`http://${this.host}:${this.port}/api/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,8 +53,8 @@ class GGSClient {
         }
 
         try {
-            // Пример: Добавление токена в заголовок запроса
-            const response = await fetch(`http://${this.host}:${this.port}/api/${collection}`, {
+            const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
+            const response = await fetch(`http://${this.host}:${this.port}/api/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ class GGSClient {
             })
 
             const items = await response.json()
-            return items[collection] || []
+            return items || {}
         } catch (error) {
             console.error(error)
             throw new Error('Failed to add item')
