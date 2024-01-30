@@ -30,12 +30,11 @@ class GGSClient {
 
         try {
             const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
-            await fetch(`http://${this.host}:${this.port}/api/${id}`, {
+            await fetch(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                    'Project-Name': `${this.projectName}`
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(item),
             })
@@ -54,12 +53,11 @@ class GGSClient {
 
         try {
             const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
-            const response = await fetch(`http://${this.host}:${this.port}/api/${id}`, {
+            const response = await fetch(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                    'Project-Name': `${this.projectName}`
+                    'Authorization': `Bearer ${token}`
                 }
             })
 
