@@ -55,8 +55,7 @@ class GGSClient {
             const items = await response.data
             return items || {}
         } catch (error) {
-            console.error(error)
-            throw new Error('Failed to add item')
+            if (error.response.data.error !== 'No such collection') throw new Error(`Error: ${error.response.data.error}`)
         }
     }
 
