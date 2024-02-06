@@ -3,7 +3,7 @@ const ConfigService = require('./lib/config.service')
 const axios = require("axios")
 
 class GGSClient {
-    axiosConfig = (token) => ({headers: {'Authorization': `Bearer ${token}`}})
+    axiosConfig = (token) => ({headers: {'Content-Type': 'application/json', Authorization: `Bearer ${token}`}})
 
     constructor(options) {
         this.config = new ConfigService()
@@ -34,7 +34,7 @@ class GGSClient {
 
         try {
             const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
-            await axios.post(this.url(id), JSON.stringify(item), this.axiosConfig(token))
+            await axios.post(this.url(id), item, this.axiosConfig(token))
         } catch (error) {
             console.error(error)
             throw new Error('Failed to add item')
