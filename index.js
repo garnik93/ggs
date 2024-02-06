@@ -61,7 +61,7 @@ class GGSClient {
                 }
             })
 
-            const items = await response.data.json()
+            const items = await response.data
             return items || {}
         } catch (error) {
             console.error(error)
