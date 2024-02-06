@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const ConfigService = require('./lib/config.service')
+const axios = require("axios");
 
 class GGSClient {
     constructor(options) {
@@ -30,13 +31,12 @@ class GGSClient {
 
         try {
             const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
-            await fetch(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, {
+            await axios.post(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, JSON.stringify(item),{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(item),
+                }
             })
         } catch (error) {
             console.error(error)
@@ -53,7 +53,7 @@ class GGSClient {
 
         try {
             const id = collection.match(/\d+/) ? `${collection}:${collection}` : collection
-            const response = await fetch(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, {
+            const response = await axios.get(`http://${this.host}:${this.port}/api/${this.projectName}/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ class GGSClient {
                 }
             })
 
-            const items = await response.json()
+            const items = await response.data.json()
             return items || {}
         } catch (error) {
             console.error(error)

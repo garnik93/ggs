@@ -1,6 +1,6 @@
 {
   "name": "ggs-database",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "ggs database",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,9 +11,10 @@
   "author": "Garnik Gevorgyan",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node-fetch": "^2.6.11",
+    "axios": "^1.6.7",
     "dotenv": "^16.3.1",
-    "jsonwebtoken": "^9.0.2",
-    "node-fetch": "^3.3.2"
+    "jsonwebtoken": "^9.0.2"
   }
 }
